@@ -2,38 +2,54 @@
     "list": [{
             "id": 1,
             "name": "张三",
-            "money": 123,
-            "address": "广东省东莞市长安镇",
-            "state": "成功",
-            "date": "2019-11-1",
-            "thumb": "https://lin-xin.gitee.io/images/post/wms.png"
+            "job": "主治医生",
+            "address": "内镜科室01",
+            "state": "问诊中",
+            "patient": 3,
+            "wait": 3,
+            "role": 1,
+            "number": "12497",
+            "date": "2019-11-01 10:10",
+            "desc": "肺癌、乳腺癌、消化道肿瘤、泌尿生殖系肿瘤等多种实体肿瘤的化疗"
         },
         {
             "id": 2,
             "name": "李四",
-            "money": 456,
-            "address": "广东省广州市白云区",
-            "state": "成功",
-            "date": "2019-10-11",
-            "thumb": "https://lin-xin.gitee.io/images/post/node3.png"
+            "job": "主治医生",
+            "address": "内镜科室02",
+            "patient": 4,
+            "wait": 2,
+            "role": 1,
+            "number": "12480",
+            "state": "问诊中",
+            "date": "2019-10-11 11:30",
+            "desc": "肺癌、乳腺癌、消化道肿瘤、泌尿生殖系肿瘤等多种实体肿瘤的化疗。"
         },
         {
             "id": 3,
             "name": "王五",
-            "money": 789,
-            "address": "湖南省长沙市",
-            "state": "失败",
-            "date": "2019-11-11",
-            "thumb": "https://lin-xin.gitee.io/images/post/parcel.png"
+            "job": "主治医生",
+            "address": "内镜科室06",
+            "patient": 4,
+            "number": "12490",
+            "wait": 2,
+            "role": 1,
+            "state": "休息中",
+            "date": "2019-11-11 10:00",
+            "desc": "胃肠肿瘤,甲状腺、乳腺疾病诊断与外科治疗,普通外科疑难危重病症的诊治。"
         },
         {
             "id": 4,
             "name": "赵六",
-            "money": 1011,
-            "address": "福建省厦门市鼓浪屿",
-            "state": "成功",
-            "date": "2019-10-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/notice.png"
+            "job": "助理医师",
+            "address": "内镜科室06",
+            "patient": 3,
+            "wait": 3,
+            "role": 2,
+            "number": "18490",
+            "state": "问诊中",
+            "date": "2019-10-20 10:00",
+            "desc": " 肝胆疾病的各种外科手术治疗，普通外科疑难危重病症的诊治"
         }
     ],
     "pageTotal": 4

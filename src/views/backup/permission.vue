@@ -25,8 +25,8 @@
 <script setup lang="ts" name="permission">
 import { ref } from 'vue';
 import { ElTree } from 'element-plus';
-import { usePermissStore } from '../store/permiss';
-import authKey from '../utils/authKey';
+import { usePermissStore } from '../../store/permiss';
+import authKey from '../../utils/authKey';
 
 const role = ref<string>('admin');
 

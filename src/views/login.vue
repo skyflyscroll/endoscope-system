@@ -6,7 +6,7 @@
 				<el-form-item prop="username">
 					<el-input v-model="param.username" placeholder="username">
 						<template #prepend>
-							<el-button :icon="User"></el-button>
+							<el-button>姓名</el-button>
 						</template>
 					</el-input>
 				</el-form-item>
@@ -18,14 +18,13 @@
 						@keyup.enter="submitForm(login)"
 					>
 						<template #prepend>
-							<el-button :icon="Lock"></el-button>
+							<el-button >工号</el-button>
 						</template>
 					</el-input>
 				</el-form-item>
 				<div class="login-btn">
 					<el-button type="primary" @click="submitForm(login)">登录</el-button>
 				</div>
-				<p class="login-tips">Tips : 用户名和密码随便填。</p>
 			</el-form>
 		</div>
 		<canvas id="myCanvas" width="200" height="200"/>
@@ -40,8 +39,6 @@ import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import type { FormInstance, FormRules } from 'element-plus';
 import { particlesDestore, particlesRun } from '../utils/particlesRun';
-// form图标
-import { Lock, User } from '@element-plus/icons-vue';
 
 interface LoginInfo {
 	username: string;
@@ -64,8 +61,6 @@ onUnmounted(() => {
 	particlesDestore()
 })
 
-
-
 const rules: FormRules = {
 	username: [
 		{
@@ -84,10 +79,11 @@ const submitForm = (formEl: FormInstance | undefined) => {
 		if (valid) {
 			ElMessage.success('登录成功');
 			localStorage.setItem('ms_username', param.username);
+			localStorage.setItem('ms_jobNumber', param.password);
 			const keys = permiss.defaultList[param.username == 'admin' ? 'admin' : 'user'];
 			permiss.handleSet(keys);
 			localStorage.setItem('ms_keys', JSON.stringify(keys));
-			router.push('/');
+			router.push('/background/dashboard');
 		} else {
 			ElMessage.error('登录成功');
 			return false;
@@ -104,9 +100,9 @@ tags.clearTags();
 	position: relative;
 	width: 100%;
 	height: 100%;
-	/* background-image: url(../assets/img/login-bg.jpg); */
 	background-image: linear-gradient(0deg, rgb(59, 102, 149),rgb(100, 146, 195));
-	background-size: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 .ms-title {
 	width: 100%;

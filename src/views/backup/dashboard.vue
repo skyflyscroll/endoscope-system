@@ -119,7 +119,7 @@
 <script setup lang="ts" name="dashboard">
 import Schart from 'vue-schart';
 import { reactive } from 'vue';
-import imgurl from '../assets/img/avar.png';
+import imgurl from '../../assets/img/avar.png';
 
 const name = localStorage.getItem('ms_username');
 const role: string = name === 'admin' ? '超级管理员' : '非超级管理员';

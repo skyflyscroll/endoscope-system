@@ -1,14 +1,15 @@
 <template>
 	<div class="login-wrap">
 		<div class="ms-login">
-			<div class="ms-title">切换系统</div>
+			<div class="ms-title">选择患者信息</div>
 			<div class="ms-center">
-					<el-select v-model="systemMessage" style="width:100%" @change="handleChange">
-						<el-option label="设备信息系统" value="deviceSystem"></el-option>
-						<el-option label="后台管理系统" value="backgroundSystem"></el-option>
+					<el-select v-model="patientMessage" style="width:100%" @change="handleChange">
+						<template v-for="item in patientList">
+							<el-option :label="item.label" :value="item.value"></el-option>
+						</template>
 					</el-select>
 				<div class="login-btn">
-					<el-button type="primary" @click="goNext">前往</el-button>
+					<el-button type="primary" @click="onConfirm">确认</el-button>
 				</div>
 			</div>
 		</div>
@@ -21,9 +22,26 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { particlesDestore, particlesRun } from '../utils/particlesRun';
 
+const patientList = [{
+	label: '张山（1551890）',
+	value: '1551890'
+},
+{
+	label: '李四（1551891）',
+	value: '1551891'
+},
+{
+	label: '王五（1551892）',
+	value: '1551892'
+},
+{
+	label: '赵六（1551893）',
+	value: '1551893',
+}]
+
 const router = useRouter();
 
-const systemMessage = ref<string>('deviceSystem');
+const patientMessage = ref<string>('');
 
 onMounted(() => {
 	// 背景动画
@@ -36,17 +54,12 @@ onUnmounted(() => {
 })
 
 const handleChange = ((e: string) => {
-	systemMessage.value = e
+	patientMessage.value = e
 }) 
 
-const goNext = () => {
-	if(systemMessage.value === 'deviceSystem'){
-  	router.push('/deviceLogin');
-	}
-	if(systemMessage.value === 'backgroundSystem'){
-  	router.push('/login');
-	}
-}
+const onConfirm = (() => {
+	router.push('/device/dashboard');
+})
 
 </script>
 
@@ -55,7 +68,7 @@ const goNext = () => {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-image: url(../assets/img/login-bg.png);
+	background-image: linear-gradient(0deg, rgb(59, 102, 149),rgb(100, 146, 195));
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }

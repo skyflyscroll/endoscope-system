@@ -63,7 +63,7 @@
 	</div>
 </template>
 
-<script setup lang="ts" name="tabs">
+<script setup lang="ts" name="messageList">
 import { ref, reactive } from 'vue';
 
 const message = ref('first');

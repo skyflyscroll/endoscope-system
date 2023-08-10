@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { usePermissStore } from '../store/permiss';
-import Home from '../views/home.vue';
+import Background from '../views/background/home.vue';
 import authKey from '../utils/authKey';
 
 const routes: RouteRecordRaw[] = [
@@ -9,125 +9,94 @@ const routes: RouteRecordRaw[] = [
         redirect: '/switch',
     },
     {
-        path: '/',
-        name: 'Home',
-        component: Home,
+        path: '/background',
+        name: 'Background',
+        component: Background,
         children: [
             {
-                path: '/dashboard',
-                name: 'dashboard',
+                path: 'dashboard',
+                name: 'BackgroundDashboard',
                 meta: {
-                    title: authKey.menuKeyData.main.text,
-                    permiss: authKey.menuKeyData.main.id,
+                    title: authKey.menuKeyData.dashboard.text,
+                    permiss: authKey.menuKeyData.dashboard.id,
                 },
-                component: () => import(/* webpackChunkName: "dashboard" */ '../views/dashboard.vue'),
+                component: () => import(/* webpackChunkName: "BackgroundDashboard" */ '../views/background/dashboard.vue'),
             },
             {
-                path: '/table',
-                name: 'basetable',
+                path: 'apartRole',
+                name: 'ApartRole',
                 meta: {
-                    title: '表格',
-                    permiss: '2',
+                    title: authKey.menuKeyData.apartRole.text,
+                    permiss: authKey.menuKeyData.apartRole.id,
                 },
-                component: () => import(/* webpackChunkName: "table" */ '../views/table.vue'),
+                component: () => import(/* webpackChunkName: "ApartRole" */ '../views/background/apartRole.vue'),
             },
             {
-                path: '/charts',
-                name: 'basecharts',
+                path: 'roleManage',
+                name: 'RoleManage',
                 meta: {
-                    title: '图表',
-                    permiss: '11',
+                    title: authKey.menuKeyData.roleManage.text,
+                    permiss: authKey.menuKeyData.roleManage.id,
                 },
-                component: () => import(/* webpackChunkName: "charts" */ '../views/charts.vue'),
+                component: () => import(/* webpackChunkName: "RoleManage" */ '../views/background/roleManage.vue'),
             },
             {
-                path: '/form',
-                name: 'baseform',
+                path: 'authManage',
+                name: 'AuthManage',
                 meta: {
-                    title: '表单',
-                    permiss: '5',
+                    title: authKey.menuKeyData.authManage.text,
+                    permiss: authKey.menuKeyData.authManage.id,
                 },
-                component: () => import(/* webpackChunkName: "form" */ '../views/form.vue'),
+                component: () => import(/* webpackChunkName: "AuthManage" */ '../views/background/authManage.vue'),
             },
             {
-                path: '/tabs',
-                name: 'tabs',
+                path: 'patientList',
+                name: 'PatientList',
                 meta: {
-                    title: 'tab标签',
-                    permiss: '3',
+                    title: authKey.menuKeyData.patientList.text,
+                    permiss: authKey.menuKeyData.patientList.id,
                 },
-                component: () => import(/* webpackChunkName: "tabs" */ '../views/tabs.vue'),
+                component: () => import(/* webpackChunkName: "PatientList" */ '../views/background/patientList.vue'),
             },
             {
-                path: '/donate',
-                name: 'donate',
+                path: 'dataStatistics',
+                name: 'DataStatistics',
                 meta: {
-                    title: '鼓励作者',
-                    permiss: '14',
+                    title: authKey.menuKeyData.dataStatistics.text,
+                    permiss: authKey.menuKeyData.dataStatistics.id,
                 },
-                component: () => import(/* webpackChunkName: "donate" */ '../views/donate.vue'),
+                component: () => import(/* webpackChunkName: "DataStatistics" */ '../views/background/dataStatistics.vue'),
             },
             {
-                path: '/permission',
-                name: 'permission',
+                path: 'messageList',
+                name: 'MessageList',
                 meta: {
-                    title: '权限管理',
-                    permiss: '13',
+                    title: authKey.menuKeyData.messageList.text,
+                    permiss: authKey.menuKeyData.messageList.id,
                 },
-                component: () => import(/* webpackChunkName: "permission" */ '../views/permission.vue'),
+                component: () => import(/* webpackChunkName: "MessageList" */ '../views/background/messageList.vue'),
             },
             {
-                path: '/upload',
-                name: 'upload',
-                meta: {
-                    title: '上传插件',
-                    permiss: '6',
-                },
-                component: () => import(/* webpackChunkName: "upload" */ '../views/upload.vue'),
-            },
-            {
-                path: '/user',
+                path: 'user',
                 name: 'user',
                 meta: {
                     title: '个人中心',
                 },
-                component: () => import(/* webpackChunkName: "user" */ '../views/user.vue'),
+                component: () => import(/* webpackChunkName: "user" */ '../views/background/user.vue'),
             },
+        ],
+    },
+    {
+        path: '/device',
+        name: 'Device',
+        children: [
             {
-                path: '/editor',
-                name: 'editor',
+                path: 'dashboard',
+                name: 'DeviceDashboard',
                 meta: {
-                    title: '富文本编辑器',
-                    permiss: '8',
+                    title: '内镜状态',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/editor.vue'),
-            },
-            {
-                path: '/markdown',
-                name: 'markdown',
-                meta: {
-                    title: 'markdown编辑器',
-                    permiss: '9',
-                },
-                component: () => import(/* webpackChunkName: "markdown" */ '../views/markdown.vue'),
-            },
-            {
-                path: '/export',
-                name: 'export',
-                meta: {
-                    title: '导出Excel',
-                    permiss: '2',
-                },
-                component: () => import(/* webpackChunkName: "export" */ '../views/export.vue'),
-            },
-            {
-                path: '/import',
-                name: 'import',
-                meta: {
-                    title: '导入Excel',
-                    permiss: '2',
-                },
-                component: () => import(/* webpackChunkName: "import" */ '../views/import.vue'),
+                component: () => import(/* webpackChunkName: "DeviceDashboard" */ '../views/device/dashboard.vue'),
             },
         ],
     },
@@ -148,12 +117,28 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "login" */ '../views/login.vue'),
     },
     {
+        path: '/deviceLogin',
+        name: 'DeviceLogin',
+        meta: {
+            title: '设备信息系统',
+        },
+        component: () => import(/* webpackChunkName: "login" */ '../views/deviceLogin.vue'),
+    },
+    {
         path: '/403',
         name: '403',
         meta: {
             title: '没有权限',
         },
         component: () => import(/* webpackChunkName: "403" */ '../views/403.vue'),
+    },
+    {
+        path: '/404',
+        name: '404',
+        meta: {
+            title: '没有找到页面',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/404.vue'),
     },
 ];
 

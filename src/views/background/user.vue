@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<el-row :gutter="20">
-			<el-col :span="12">
+			<el-col :span="24">
 				<el-card shadow="hover">
 					<template #header>
 						<div class="clearfix">
@@ -15,12 +15,13 @@
 								<i class="el-icon-lx-camerafill"></i>
 							</span>
 						</div>
-						<div class="info-name">{{ name }}</div>
+						<div class="info-name">姓名：{{ name }}</div>
+						<div class="info-name">工号：{{ jobNumber }}</div>
 						<div class="info-desc">生命是无价之宝。</div>
 					</div>
 				</el-card>
 			</el-col>
-			<el-col :span="12">
+			<!-- <el-col :span="12">
 				<el-card shadow="hover">
 					<template #header>
 						<div class="clearfix">
@@ -43,7 +44,7 @@
 						</el-form-item>
 					</el-form>
 				</el-card>
-			</el-col>
+			</el-col> -->
 		</el-row>
 		<el-dialog title="裁剪图片" v-model="dialogVisible" width="600px">
 			<vue-cropper
@@ -72,9 +73,11 @@
 import { reactive, ref } from 'vue';
 import VueCropper from 'vue-cropperjs';
 import 'cropperjs/dist/cropper.css';
-import avatar from '../assets/img/avar.png';
+import avatar from '../../assets/img/avar.png';
 
 const name = localStorage.getItem('ms_username');
+const jobNumber = localStorage.getItem('ms_jobNumber');
+
 const form = reactive({
 	old: '',
 	new: '',
@@ -154,11 +157,17 @@ const saveAvatar = () => {
 	opacity: 1;
 }
 .info-name {
-	margin: 15px 0 10px;
-	font-size: 24px;
-	font-weight: 500;
+	margin: 12px 0 8px;
+	font-size: 20px;
 	color: #262626;
 }
+
+.info-desc {
+	margin: 12px 0 8px;
+	font-size: 20px;
+	color: #262626;
+}
+
 .crop-demo-btn {
 	position: relative;
 }

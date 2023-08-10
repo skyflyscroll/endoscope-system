@@ -1,4 +1,4 @@
-interface MenuTree {
+export interface MenuTree {
 	icon?: string;
 	index?: string;
 	id?: string;
@@ -7,7 +7,7 @@ interface MenuTree {
 	subs?: MenuTree[];
 }
 
-interface PerimissionTree {
+export interface PerimissionTree {
 	id: string;
 	label: string;
 	children?: PerimissionTree[];

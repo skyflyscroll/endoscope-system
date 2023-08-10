@@ -27,6 +27,7 @@ interface TableItem {
     class: string;
     age: string;
     sex: string;
+    [key: string]: any;
 }
 
 const tableData = ref<TableItem[]>([]);
